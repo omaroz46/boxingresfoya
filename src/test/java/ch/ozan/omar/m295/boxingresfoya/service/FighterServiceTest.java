@@ -16,6 +16,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
+/**
+ * Unit tests for the FighterService class.
+ */
 public class FighterServiceTest {
 
     @Mock
@@ -29,6 +32,9 @@ public class FighterServiceTest {
         MockitoAnnotations.initMocks(this);
     }
 
+    /**
+     * Tests the getAllFighters method.
+     */
     @Test
     void getAllFightersShouldReturnListOfFighters() {
         List<Fighter> expectedFighters = new ArrayList<>();
@@ -39,6 +45,9 @@ public class FighterServiceTest {
         assertEquals(expectedFighters.size(), actualFighters.size());
     }
 
+    /**
+     * Tests the getFighter method when the fighter exists.
+     */
     @Test
     void getFighterShouldReturnFighterIfExists() {
         Long id = 1L;
@@ -48,6 +57,9 @@ public class FighterServiceTest {
         assertEquals(expectedFighter, actualFighter);
     }
 
+    /**
+     * Tests the getFighter method when the fighter does not exist.
+     */
     @Test
     void getFighterShouldThrowEntityNotFoundExceptionIfFighterDoesNotExist() {
         Long id = 1L;
@@ -55,6 +67,9 @@ public class FighterServiceTest {
         assertThrows(EntityNotFoundException.class, () -> fighterService.getFighter(id));
     }
 
+    /**
+     * Tests the createFighter method.
+     */
     @Test
     void createFighterShouldReturnCreatedFighter() {
         Fighter fighterToCreate = new Fighter();
@@ -63,6 +78,9 @@ public class FighterServiceTest {
         assertEquals(fighterToCreate, createdFighter);
     }
 
+    /**
+     * Tests the updateFighter method when the fighter exists.
+     */
     @Test
     void updateFighterShouldReturnUpdatedFighter() {
         Long id = 1L;
@@ -74,6 +92,9 @@ public class FighterServiceTest {
         assertEquals(updatedFighter, result);
     }
 
+    /**
+     * Tests the updateFighter method when the fighter does not exist.
+     */
     @Test
     void updateFighterShouldThrowEntityNotFoundExceptionIfFighterDoesNotExist() {
         Long id = 1L;
@@ -82,6 +103,9 @@ public class FighterServiceTest {
         assertThrows(EntityNotFoundException.class, () -> fighterService.updateFighter(updatedFighter, id));
     }
 
+    /**
+     * Tests the deleteFighter method when the fighter exists.
+     */
     @Test
     void deleteFighterShouldDeleteFighterIfExists() {
         Long id = 1L;
@@ -90,6 +114,9 @@ public class FighterServiceTest {
         verify(fighterRepository, times(1)).deleteById(id);
     }
 
+    /**
+     * Tests the deleteFighter method when the fighter does not exist.
+     */
     @Test
     void deleteFighterShouldThrowEntityNotFoundExceptionIfFighterDoesNotExist() {
         Long id = 1L;

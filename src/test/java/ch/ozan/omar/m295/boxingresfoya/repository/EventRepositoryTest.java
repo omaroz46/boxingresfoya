@@ -13,6 +13,9 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Unit tests for the EventRepository class.
+ */
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 public class EventRepositoryTest {
@@ -20,6 +23,9 @@ public class EventRepositoryTest {
     @Autowired
     private EventRepository eventRepository;
 
+    /**
+     * Tests creating a new event.
+     */
     @Test
     public void createShouldContainNewlyCreatedEvent() {
         // Create
@@ -35,6 +41,10 @@ public class EventRepositoryTest {
         assertEquals("Test Description", savedEvent.getDescription());
     }
 
+
+    /**
+     * Tests reading a previously created event.
+     */
     @Test
     public void readShouldContainPreviouslyCreatedEvent() {
         // Create
@@ -51,6 +61,9 @@ public class EventRepositoryTest {
         assertEquals("Test Description", savedEvent.getDescription());
     }
 
+    /**
+     * Tests updating an existing event.
+     */
     @Test
     public void updateShouldContainUpdatedEvent() {
         // Create
@@ -73,6 +86,9 @@ public class EventRepositoryTest {
         assertEquals("Updated Description", updatedEvent.getDescription());
     }
 
+    /**
+     * Tests deleting an existing event.
+     */
     @Test
     public void deleteShouldNotContainDeletedEvent() {
         // Create

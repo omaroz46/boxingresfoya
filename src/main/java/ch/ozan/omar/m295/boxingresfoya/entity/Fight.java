@@ -3,6 +3,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
 
+/**
+ * The Fight entity.
+ */
 @Data
 @Entity
 public class Fight {
@@ -26,8 +29,18 @@ public class Fight {
     @JoinColumn(name = "event_id")
     private Event event;
 
+    /**
+     * Default constructor for Fight.
+     */
     public Fight() {}
 
+    /**
+     * Constructor for Fight with parameters.
+     * @param date The date of the Fight.
+     * @param location The location of the Fight.
+     * @param opponent The opponent of the Fight.
+     * @param result The result of the Fight.
+     */
     public Fight(LocalDateTime date, String location, String opponent, String result) {
         this.date = date;
         this.location = location;

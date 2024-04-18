@@ -16,6 +16,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+/**
+ * Unit tests for the BoxingClubController class.
+ */
 public class BoxingClubControllerTest {
 
     @Mock
@@ -29,6 +32,9 @@ public class BoxingClubControllerTest {
         MockitoAnnotations.initMocks(this);
     }
 
+    /**
+     * Test case for retrieving all boxing clubs.
+     */
     @Test
     void testGetAllBoxingClubs() {
         List<BoxingClub> expectedBoxingClubs = new ArrayList<>();
@@ -40,6 +46,9 @@ public class BoxingClubControllerTest {
         assertEquals(expectedBoxingClubs.size(), responseEntity.getBody().size());
     }
 
+    /**
+     * Test case for retrieving a boxing club by ID.
+     */
     @Test
     void testGetBoxingClubById() {
         Long id = 1L;
@@ -50,6 +59,9 @@ public class BoxingClubControllerTest {
         assertEquals(expectedBoxingClub, responseEntity.getBody());
     }
 
+    /**
+     * Test case for creating a new boxing club.
+     */
     @Test
     void testCreateBoxingClub() {
         BoxingClub boxingClub = new BoxingClub();
@@ -59,6 +71,9 @@ public class BoxingClubControllerTest {
         assertEquals(boxingClub, responseEntity.getBody());
     }
 
+    /**
+     * Test case for updating an existing boxing club.
+     */
     @Test
     void testUpdateBoxingClub() {
         Long id = 1L;
@@ -69,6 +84,9 @@ public class BoxingClubControllerTest {
         assertEquals(boxingClub, responseEntity.getBody());
     }
 
+    /**
+     * Test case for deleting a boxing club.
+     */
     @Test
     void testDeleteBoxingClub() {
         Long id = 1L;

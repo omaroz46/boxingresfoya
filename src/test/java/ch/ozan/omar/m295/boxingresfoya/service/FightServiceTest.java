@@ -17,6 +17,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
+/**
+ * Unit tests for the FightService class.
+ */
 public class FightServiceTest {
 
     @Mock
@@ -30,6 +33,9 @@ public class FightServiceTest {
         MockitoAnnotations.initMocks(this);
     }
 
+    /**
+     * Tests the getAllFights method.
+     */
     @Test
     void getAllFightsShouldReturnListOfFights() {
         List<Fight> expectedFights = new ArrayList<>();
@@ -40,6 +46,9 @@ public class FightServiceTest {
         assertEquals(expectedFights.size(), actualFights.size());
     }
 
+    /**
+     * Tests the getFight method when the fight exists.
+     */
     @Test
     void getFightShouldReturnFightIfExists() {
         Long id = 1L;
@@ -49,6 +58,9 @@ public class FightServiceTest {
         assertEquals(expectedFight, actualFight);
     }
 
+    /**
+     * Tests the getFight method when the fight does not exist.
+     */
     @Test
     void getFightShouldThrowEntityNotFoundExceptionIfFightDoesNotExist() {
         Long id = 1L;
@@ -56,6 +68,9 @@ public class FightServiceTest {
         assertThrows(EntityNotFoundException.class, () -> fightService.getFight(id));
     }
 
+    /**
+     * Tests the createFight method.
+     */
     @Test
     void createFightShouldReturnCreatedFight() {
         Fight fightToCreate = new Fight();
@@ -64,6 +79,9 @@ public class FightServiceTest {
         assertEquals(fightToCreate, createdFight);
     }
 
+    /**
+     * Tests the updateFight method when the fight exists.
+     */
     @Test
     void updateFightShouldReturnUpdatedFight() {
         Long id = 1L;
@@ -75,6 +93,9 @@ public class FightServiceTest {
         assertEquals(updatedFight, result);
     }
 
+    /**
+     * Tests the updateFight method when the fight does not exist.
+     */
     @Test
     void updateFightShouldThrowEntityNotFoundExceptionIfFightDoesNotExist() {
         Long id = 1L;
@@ -83,6 +104,9 @@ public class FightServiceTest {
         assertThrows(EntityNotFoundException.class, () -> fightService.updateFight(updatedFight, id));
     }
 
+    /**
+     * Tests the deleteFight method when the fight exists.
+     */
     @Test
     void deleteFightShouldDeleteFightIfExists() {
         Long id = 1L;
@@ -91,6 +115,9 @@ public class FightServiceTest {
         verify(fightRepository, times(1)).deleteById(id);
     }
 
+    /**
+     * Tests the deleteFight method when the fight does not exist.
+     */
     @Test
     void deleteFightShouldThrowEntityNotFoundExceptionIfFightDoesNotExist() {
         Long id = 1L;

@@ -15,6 +15,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+/**
+ * Unit tests for the EventController class.
+ */
 public class EventControllerTest {
 
     @Mock
@@ -28,6 +31,10 @@ public class EventControllerTest {
         MockitoAnnotations.initMocks(this);
     }
 
+    /**
+     * Tests the getAll method of EventController.
+     */
+
     @Test
     void testGetAllEvents() {
         List<Event> expectedEvents = new ArrayList<>();
@@ -39,6 +46,9 @@ public class EventControllerTest {
         assertEquals(expectedEvents.size(), responseEntity.getBody().size());
     }
 
+    /**
+     * Tests the one method of EventController.
+     */
     @Test
     void testGetEventById() {
         Long id = 1L;
@@ -49,6 +59,9 @@ public class EventControllerTest {
         assertEquals(expectedEvent, responseEntity.getBody());
     }
 
+    /**
+     * Tests the newEvent method of EventController.
+     */
     @Test
     void testCreateEvent() {
         Event event = new Event();
@@ -58,6 +71,9 @@ public class EventControllerTest {
         assertEquals(event, responseEntity.getBody());
     }
 
+    /**
+     * Tests the updateEvent method of EventController.
+     */
     @Test
     void testUpdateEvent() {
         Long id = 1L;
@@ -68,6 +84,9 @@ public class EventControllerTest {
         assertEquals(event, responseEntity.getBody());
     }
 
+    /**
+     * Tests the deleteEvent method of EventController.
+     */
     @Test
     void testDeleteEvent() {
         Long id = 1L;

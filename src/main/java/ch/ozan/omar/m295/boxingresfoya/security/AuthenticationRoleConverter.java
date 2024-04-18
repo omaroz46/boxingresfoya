@@ -14,14 +14,25 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Converter class for extracting authorities from a JWT token and converting them into Spring Security GrantedAuthority objects.
+ */
 public class AuthenticationRoleConverter implements Converter<Jwt, AbstractAuthenticationToken> {
     private final JwtGrantedAuthoritiesConverter defaultGrantedAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();
 
+    /**
+     * Constructs a new AuthenticationRoleConverter and configures defaultGrantedAuthoritiesConverter.
+     */
     public AuthenticationRoleConverter() {
         defaultGrantedAuthoritiesConverter.setAuthoritiesClaimName("roles");
         defaultGrantedAuthoritiesConverter.setAuthorityPrefix("ROLE_");
     }
 
+    /**
+     * Extracts resource roles from the JWT token.
+     * @param jwt The JWT token.
+     * @return Collection of GrantedAuthority objects representing resource roles.
+     */
     private static Collection<? extends GrantedAuthority> extractResourceRoles(final Jwt jwt) {
         Map<String, Object> resourceAccess = jwt.getClaim("resource_access");
         Collection<String> resourceRoles;
@@ -36,6 +47,11 @@ public class AuthenticationRoleConverter implements Converter<Jwt, AbstractAuthe
         return Collections.emptySet();
     }
 
+    /**
+     * Converts a Jwt token into an AbstractAuthenticationToken containing the authorities extracted from the token.
+     * @param source The Jwt token to convert.
+     * @return An AbstractAuthenticationToken containing the authorities extracted from the token.
+     */
     @Override
     public AbstractAuthenticationToken convert(final Jwt source) {
         Collection<GrantedAuthority> authorities = Stream.concat(defaultGrantedAuthoritiesConverter.convert(source)

@@ -12,6 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
 
+/**
+ * Unit tests for the FighterRepository class.
+ */
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 public class FighterRepositoryTest {
@@ -19,6 +22,9 @@ public class FighterRepositoryTest {
     @Autowired
     private FighterRepository fighterRepository;
 
+    /**
+     * Tests creating a new fighter.
+     */
     @Test
     public void createShouldContainNewlyCreatedFighter() {
         // Create
@@ -33,6 +39,9 @@ public class FighterRepositoryTest {
         assertEquals("Test Fight Record", savedFighter.getFightRecord());
     }
 
+    /**
+     * Tests reading a previously created fighter.
+     */
     @Test
     public void readShouldContainPreviouslyCreatedFighter() {
         // Create
@@ -48,6 +57,9 @@ public class FighterRepositoryTest {
         assertEquals("Test Fight Record", savedFighter.getFightRecord());
     }
 
+    /**
+     * Tests updating an existing fighter.
+     */
     @Test
     public void updateShouldContainUpdatedFighter() {
         // Create
@@ -69,6 +81,9 @@ public class FighterRepositoryTest {
         assertEquals("Updated Fight Record", updatedFighter.getFightRecord());
     }
 
+    /**
+     * Tests deleting an existing fighter.
+     */
     @Test
     public void deleteShouldNotContainDeletedFighter() {
         // Create

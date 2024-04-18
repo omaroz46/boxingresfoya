@@ -16,6 +16,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+/**
+ * Unit tests for the FightController class.
+ */
 public class FightControllerTest {
 
     @Mock
@@ -29,6 +32,9 @@ public class FightControllerTest {
         MockitoAnnotations.initMocks(this);
     }
 
+    /**
+     * Tests the all method of FightController.
+     */
     @Test
     void testGetAllFights() {
         List<Fight> expectedFights = new ArrayList<>();
@@ -40,6 +46,9 @@ public class FightControllerTest {
         assertEquals(expectedFights.size(), responseEntity.getBody().size());
     }
 
+    /**
+     * Tests the one method of FightController.
+     */
     @Test
     void testGetFightById() {
         Long id = 1L;
@@ -50,6 +59,9 @@ public class FightControllerTest {
         assertEquals(expectedFight, responseEntity.getBody());
     }
 
+    /**
+     * Tests the newFight method of FightController.
+     */
     @Test
     void testCreateFight() {
         Fight fight = new Fight();
@@ -59,6 +71,9 @@ public class FightControllerTest {
         assertEquals(fight, responseEntity.getBody());
     }
 
+    /**
+     * Tests the updateFight method of FightController.
+     */
     @Test
     void testUpdateFight() {
         Long id = 1L;
@@ -69,6 +84,9 @@ public class FightControllerTest {
         assertEquals(fight, responseEntity.getBody());
     }
 
+    /**
+     * Tests the deleteFight method of FightController.
+     */
     @Test
     void testDeleteFight() {
         Long id = 1L;

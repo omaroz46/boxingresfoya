@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * Configuration class for security settings.
+ */
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(jsr250Enabled = true)
@@ -28,6 +31,12 @@ public class SecurityConfig {
             "/hello"
     };
 
+    /**
+     * Configures security settings for the application.
+     * @param http The HttpSecurity object to configure.
+     * @return A SecurityFilterChain object.
+     * @throws Exception If an error occurs during configuration.
+     */
     @Bean
     protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
         CsrfTokenRequestAttributeHandler requestHandler = new CsrfTokenRequestAttributeHandler();
@@ -41,6 +50,10 @@ public class SecurityConfig {
         return http.build();
     }
 
+    /**
+     * Configures CORS settings for the application.
+     * @return A WebMvcConfigurer object.
+     */
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
@@ -53,6 +66,11 @@ public class SecurityConfig {
         };
     }
 
+    /**
+     * Retrieves the OIDC user principal.
+     * @param principal The OIDC user principal.
+     * @return The OIDC user principal.
+     */
     @GetMapping("/oidc-principal")
     public OidcUser getOidcUserPrincipal(
             @AuthenticationPrincipal OidcUser principal) {

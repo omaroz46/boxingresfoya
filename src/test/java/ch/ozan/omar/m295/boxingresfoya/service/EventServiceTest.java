@@ -17,6 +17,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
+/**
+ * Unit tests for the EventService class.
+ */
 public class EventServiceTest {
 
     @Mock
@@ -30,6 +33,9 @@ public class EventServiceTest {
         MockitoAnnotations.initMocks(this);
     }
 
+    /**
+     * Tests the getAllEvents method.
+     */
     @Test
     void getAllEventsShouldReturnListOfEvents() {
         List<Event> expectedEvents = new ArrayList<>();
@@ -40,6 +46,9 @@ public class EventServiceTest {
         assertEquals(expectedEvents.size(), actualEvents.size());
     }
 
+    /**
+     * Tests the getEvent method when the event exists.
+     */
     @Test
     void getEventShouldReturnEventIfExists() {
         Long id = 1L;
@@ -49,6 +58,9 @@ public class EventServiceTest {
         assertEquals(expectedEvent, actualEvent);
     }
 
+    /**
+     * Tests the getEvent method when the event does not exist.
+     */
     @Test
     void getEventShouldThrowEntityNotFoundExceptionIfEventDoesNotExist() {
         Long id = 1L;
@@ -56,6 +68,9 @@ public class EventServiceTest {
         assertThrows(EntityNotFoundException.class, () -> eventService.getEvent(id));
     }
 
+    /**
+     * Tests the createEvent method.
+     */
     @Test
     void createEventShouldReturnCreatedEvent() {
         Event eventToCreate = new Event();
@@ -64,6 +79,9 @@ public class EventServiceTest {
         assertEquals(eventToCreate, createdEvent);
     }
 
+    /**
+     * Tests the updateEvent method when the event exists.
+     */
     @Test
     void updateEventShouldReturnUpdatedEvent() {
         Long id = 1L;
@@ -75,6 +93,9 @@ public class EventServiceTest {
         assertEquals(updatedEvent, result);
     }
 
+    /**
+     * Tests the updateEvent method when the event does not exist.
+     */
     @Test
     void updateEventShouldThrowEntityNotFoundExceptionIfEventDoesNotExist() {
         Long id = 1L;
@@ -83,6 +104,9 @@ public class EventServiceTest {
         assertThrows(EntityNotFoundException.class, () -> eventService.updateEvent(updatedEvent, id));
     }
 
+    /**
+     * Tests the deleteEvent method when the event exists.
+     */
     @Test
     void deleteEventShouldDeleteEventIfExists() {
         Long id = 1L;
@@ -91,6 +115,9 @@ public class EventServiceTest {
         verify(eventRepository, times(1)).deleteById(id);
     }
 
+    /**
+     * Tests the deleteEvent method when the event does not exist.
+     */
     @Test
     void deleteEventShouldThrowEntityNotFoundExceptionIfEventDoesNotExist() {
         Long id = 1L;

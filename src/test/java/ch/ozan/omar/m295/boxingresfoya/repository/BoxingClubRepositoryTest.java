@@ -12,6 +12,9 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Unit tests for the BoxingClubRepository class.
+ */
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 public class BoxingClubRepositoryTest {
@@ -19,6 +22,9 @@ public class BoxingClubRepositoryTest {
     @Autowired
     private BoxingClubRepository boxingClubRepository;
 
+    /**
+     * Tests creating a new boxing club.
+     */
     @Test
     public void createShouldContainNewlyCreatedBoxingClub() {
         // Create
@@ -33,6 +39,9 @@ public class BoxingClubRepositoryTest {
         assertEquals("Test Contact Info", savedBoxingClub.getContactInfo());
     }
 
+    /**
+     * Tests reading a previously created boxing club.
+     */
     @Test
     public void readShouldContainPreviouslyCreatedBoxingClub() {
         // Create
@@ -48,6 +57,9 @@ public class BoxingClubRepositoryTest {
         assertEquals("Test Contact Info", savedBoxingClub.getContactInfo());
     }
 
+    /**
+     * Tests updating an existing boxing club.
+     */
     @Test
     public void updateShouldContainUpdatedBoxingClub() {
         // Create
@@ -69,6 +81,9 @@ public class BoxingClubRepositoryTest {
         assertEquals("Updated Contact Info", updatedBoxingClub.getContactInfo());
     }
 
+    /**
+     * Tests deleting an existing boxing club.
+     */
     @Test
     public void deleteShouldNotContainDeletedBoxingClub() {
         // Create

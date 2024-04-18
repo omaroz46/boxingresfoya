@@ -16,6 +16,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
+/**
+ * Unit tests for the BoxingClubService class.
+ */
 public class BoxingClubServiceTest {
 
     @Mock
@@ -29,6 +32,9 @@ public class BoxingClubServiceTest {
         MockitoAnnotations.initMocks(this);
     }
 
+    /**
+     * Tests the getAllBoxingClubs method.
+     */
     @Test
     void getAllBoxingClubsShouldReturnListOfClubs() {
         List<BoxingClub> expectedClubs = new ArrayList<>();
@@ -39,6 +45,9 @@ public class BoxingClubServiceTest {
         assertEquals(expectedClubs.size(), actualClubs.size());
     }
 
+    /**
+     * Tests the getBoxingClub method when the club exists.
+     */
     @Test
     void getBoxingClubShouldReturnClubIfExists() {
         Long id = 1L;
@@ -48,6 +57,9 @@ public class BoxingClubServiceTest {
         assertEquals(expectedClub, actualClub);
     }
 
+    /**
+     * Tests the getBoxingClub method when the club does not exist.
+     */
     @Test
     void getBoxingClubShouldThrowEntityNotFoundExceptionIfClubDoesNotExist() {
         Long id = 1L;
@@ -55,6 +67,9 @@ public class BoxingClubServiceTest {
         assertThrows(EntityNotFoundException.class, () -> boxingClubService.getBoxingClub(id));
     }
 
+    /**
+     * Tests the createBoxingClub method.
+     */
     @Test
     void createBoxingClubShouldReturnCreatedClub() {
         BoxingClub clubToCreate = new BoxingClub();
@@ -63,6 +78,9 @@ public class BoxingClubServiceTest {
         assertEquals(clubToCreate, createdClub);
     }
 
+    /**
+     * Tests the updateBoxingClub method when the club exists.
+     */
     @Test
     void updateBoxingClubShouldReturnUpdatedClub() {
         Long id = 1L;
@@ -74,6 +92,9 @@ public class BoxingClubServiceTest {
         assertEquals(updatedClub, result);
     }
 
+    /**
+     * Tests the updateBoxingClub method when the club does not exist.
+     */
     @Test
     void updateBoxingClubShouldThrowEntityNotFoundExceptionIfClubDoesNotExist() {
         Long id = 1L;
@@ -82,6 +103,9 @@ public class BoxingClubServiceTest {
         assertThrows(EntityNotFoundException.class, () -> boxingClubService.updateBoxingClub(updatedClub, id));
     }
 
+    /**
+     * Tests the deleteBoxingClub method when the club exists.
+     */
     @Test
     void deleteBoxingClubShouldDeleteClubIfExists() {
         Long id = 1L;
@@ -90,6 +114,9 @@ public class BoxingClubServiceTest {
         verify(boxingClubRepository, times(1)).deleteById(id);
     }
 
+    /**
+     * Tests the deleteBoxingClub method when the club does not exist.
+     */
     @Test
     void deleteBoxingClubShouldThrowEntityNotFoundExceptionIfClubDoesNotExist() {
         Long id = 1L;

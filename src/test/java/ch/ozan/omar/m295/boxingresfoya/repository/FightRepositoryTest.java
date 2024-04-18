@@ -13,6 +13,9 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Unit tests for the FightRepository class.
+ */
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 public class FightRepositoryTest {
@@ -20,6 +23,9 @@ public class FightRepositoryTest {
     @Autowired
     private FightRepository fightRepository;
 
+    /**
+     * Tests creating a new fight.
+     */
     @Test
     public void createShouldContainNewlyCreatedFight() {
         // Create
@@ -36,6 +42,9 @@ public class FightRepositoryTest {
         assertEquals("Test Result", savedFight.getResult());
     }
 
+    /**
+     * Tests reading a previously created fight.
+     */
     @Test
     public void readShouldContainPreviouslyCreatedFight() {
         // Create
@@ -53,6 +62,9 @@ public class FightRepositoryTest {
         assertEquals("Test Result", savedFight.getResult());
     }
 
+    /**
+     * Tests updating an existing fight.
+     */
     @Test
     public void updateShouldContainUpdatedFight() {
         // Create
@@ -77,6 +89,9 @@ public class FightRepositoryTest {
         assertEquals("Updated Result", updatedFight.getResult());
     }
 
+    /**
+     * Tests deleting an existing fight.
+     */
     @Test
     public void deleteShouldNotContainDeletedFight() {
         // Create
