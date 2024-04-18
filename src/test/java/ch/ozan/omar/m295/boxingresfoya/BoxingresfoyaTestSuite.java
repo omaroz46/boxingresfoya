@@ -11,6 +11,6 @@ import org.junit.platform.suite.api.Suite;
  * This test suite includes all JUnit test classes for controllers, services, and repositories.
  */
 @Suite
-@SelectClasses({ControllerTestSuite.class, ServiceTestSuite.class, RepositoryTestSuite.class})
+@SelectClasses({ControllerTestSuite.class, ServiceTestSuite.class, RepositoryTestSuite.class, RestControllerTest.class})
 public class BoxingresfoyaTestSuite {
 }
