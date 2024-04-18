@@ -18,19 +18,19 @@ In diesem Repository wurde das Backend mit den folgenden Vorgaben erstellt:
     * JUnit Test für Datenbank (CRUD)
 
 Schritte zur Installation mit den nötigen Konfigurationseinstellungen:
-* Datenbankverbing
-* Name DB: boxingresfoya
-* User: postgres
-* Passwort: Inthisbeetch.23
+* Datenbankverbindung
+  * Name DB: boxingresfoya
+  * User: postgres
+  * Passwort: Inthisbeetch.23
 * Einstellung Keycloak
-* Anmeldename: omar.ozan
-* Passwort: Inthisbeetch.23
-* Realmname: http://localhost:8080/admin/master/console/#/ILV
-* Client ID: boxingresfoya
-* Rollen:
-* ROLE_read
-* ROLE_update
-* ROLE_admin
-* User und Passwort und Entsprechende Rolle:
-* admin, admin, (ROLE_read, ROLE_update, ROLE_admin)
-* user, user, (ROLE_read, ROLE_update)
+  * Anmeldename: omar.ozan
+  * Passwort: Inthisbeetch.23
+  * Realmname: http://localhost:8080/admin/master/console/#/ILV
+  * Client ID: boxingresfoya
+  * Rollen:
+    * ROLE_read
+    * ROLE_update
+    * ROLE_admin
+  * User und Passwort und Entsprechende Rolle:
+    * admin, admin, (ROLE_read, ROLE_update, ROLE_admin)
+    * user, user, (ROLE_read, ROLE_update)
