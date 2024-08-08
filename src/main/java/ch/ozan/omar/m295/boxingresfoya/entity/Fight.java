@@ -8,6 +8,10 @@ import java.time.LocalDateTime;
  */
 @Data
 @Entity
+@NamedQuery(
+        name = "Fight.findByLocation",
+        query = "SELECT f FROM Fight f WHERE f.location = :location"
+)
 public class Fight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

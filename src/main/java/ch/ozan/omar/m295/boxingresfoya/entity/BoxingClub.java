@@ -8,6 +8,10 @@ import lombok.Data;
  */
 @Data
 @Entity
+@NamedQuery(
+        name = "BoxingClub.findByName",
+        query = "SELECT b FROM BoxingClub b WHERE b.name = :name"
+)
 public class BoxingClub {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

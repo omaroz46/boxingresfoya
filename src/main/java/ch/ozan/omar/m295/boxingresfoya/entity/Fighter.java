@@ -8,6 +8,15 @@ import lombok.Data;
  */
 @Data
 @Entity
+@NamedQuery(
+        name = "Fighter.findByFirstName",
+        query = "SELECT f FROM Fighter f WHERE f.firstName = :firstName"
+)
+@NamedQuery(
+        name = "Fighter.findByLastName",
+        query = "SELECT f FROM Fighter f WHERE f.lastName = :lastName"
+)
+
 public class Fighter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

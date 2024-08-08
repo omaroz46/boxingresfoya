@@ -8,6 +8,10 @@ import java.time.LocalDateTime;
  */
 @Data
 @Entity
+@NamedQuery(
+        name = "Event.findByName",
+        query = "SELECT e FROM Event e WHERE e.name = :name"
+)
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
