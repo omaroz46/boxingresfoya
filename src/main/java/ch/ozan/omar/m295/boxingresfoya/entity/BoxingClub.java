@@ -2,7 +2,6 @@ package ch.ozan.omar.m295.boxingresfoya.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import java.util.List;
 
 /**
  * The BoxingClub entity.
@@ -14,13 +13,13 @@ public class BoxingClub {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50, unique = true)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String location;
 
-    @Column(name = "contact_info", nullable = false)
+    @Column(nullable = false, length = 50)
     private String contactInfo;
 
     /**

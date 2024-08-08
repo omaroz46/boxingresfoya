@@ -16,13 +16,13 @@ public class Fight {
     @Column(nullable = false)
     private LocalDateTime date;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String location;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 30)
     private String opponent;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 30)
     private String result;
 
     @ManyToOne

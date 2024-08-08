@@ -13,13 +13,13 @@ public class Fighter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     private String name;
 
-    @Column(name = "weight_class", nullable = false)
+    @Column(nullable = false, length = 30)
     private String weightClass;
 
-    @Column(name = "fight_record", nullable = false)
+    @Column(nullable = false, length = 15)
     private String fightRecord;
 
     @ManyToOne
