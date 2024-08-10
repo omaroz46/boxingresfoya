@@ -13,4 +13,13 @@ public class EntityNotFoundException extends RuntimeException {
     public EntityNotFoundException(Long id, Class c) {
         super("Could not find " + c.getSimpleName() + " " + id);
     }
+
+    /**
+     * Constructs a new EntityNotFoundException with the provided ID (as String) and entity class.
+     * @param id The ID of the entity that was not found.
+     * @param c The class of the entity.
+     */
+    public EntityNotFoundException(String id, Class<?> c) {
+        super("Could not find " + c.getSimpleName() + " with name " + id);
+    }
 }
