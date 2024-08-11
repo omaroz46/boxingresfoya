@@ -14,5 +14,6 @@ import java.util.List;
 public interface FighterRepository extends JpaRepository<Fighter, Long> {
     @Query(name = "Fighter.findByName")
     List<Fighter> findByName(String name);
+
 }
 

@@ -12,6 +12,6 @@ import java.util.List;
  */
 @Repository
 public interface EventRepository extends JpaRepository<Event, Long> {
-    @Query(name = "Event.findByTitle")
-    List<Event> findByTitle(String title);
+    @Query(name = "Event.findByVenue")
+    List<Event> findByVenue(String title);
 }
